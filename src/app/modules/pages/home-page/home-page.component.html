@@ -1,0 +1,47 @@
+<div class="container-main border bg-dark">
+  <article class="p-3">
+    <div class="text-center">
+      <app-navbar [models]="models" [modelSelected]="modelSelected"
+        (modelSelectedChange)="changeSelectedModel($event)"></app-navbar>
+    </div>
+  </article>
+
+  <div class="container-fluid">
+    <div class="row border">
+      <app-sidenav class="row col"></app-sidenav>
+      <div class="row col-10 justify-content-center">
+        <div class="container border d-flex justify-content-center height-80">
+          <div class="rounded col-12 col-md-10">
+            @if(messagesArray !== undefined){
+              @for (msg of messagesArray.messages; track $index) {
+              <div class="row my-3 mx-2"
+                [ngClass]="{'justify-content-end' : msg.role === 'user','justify-content-start' : msg.role !== 'user'}">
+                <div [id]="msg.role === 'user' ? 'box-richiesta' : 'box-risposta'">
+                  <p class="p-3">
+                    {{ msg.content }}
+                  </p>
+                </div>
+              </div>
+              }
+            }
+            <!-- @if (stringArray !== undefined) {
+            <article id="box-risposta">
+              <p class="p-3">
+                {{ stringArray }}
+              </p>
+            </article>
+            } -->
+          </div>
+        </div>
+        <div class="row justify-content-center border">
+          <div class="col-12">
+            <app-input-form (textEmitter)="callIA($event)"></app-input-form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@if (isLoading) {
+<app-loading-spinner></app-loading-spinner>
+}

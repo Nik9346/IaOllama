@@ -1,0 +1,27 @@
+.container-main {
+  padding: 1.5em;
+  padding-bottom: 5em;
+  height: 100vh;
+}
+#box-risposta {
+  max-width: fit-content;
+  background-color: #666666;
+
+  color: #fff;
+  border-radius: 8px;
+}
+
+#box-richiesta {
+  max-width: fit-content;
+  background-color: #666666;
+  color: #fff;
+  border-radius: 12px;
+  margin-top: 1.5em;
+  text-align: end;
+  p{
+    margin: 0;
+  }
+}
+.height-80{
+    height: 60vh;
+}

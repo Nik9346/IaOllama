@@ -1,0 +1,13 @@
+.invert {
+  filter: invert(1);
+}
+.pointer {
+  cursor: pointer;
+}
+.hover-grey {
+  border-radius: 12px;
+  &:hover {
+    background-color: #333333;
+    
+  }
+}
