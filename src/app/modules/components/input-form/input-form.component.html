@@ -1,7 +1,7 @@
 <div class="container bg-dark">
     <div class="input-group input-group-md">
           <i class="fa-solid fa-brain"></i>
-        <input placeholder="Scrivi qui la tua domanda..."
+        <input placeholder="Scrivi qui la tua domanda..." (keydown.enter)="send()"
           #inputText
           name="text"
           type="text"

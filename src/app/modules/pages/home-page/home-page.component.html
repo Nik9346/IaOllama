@@ -7,10 +7,10 @@
   </article>
 
   <div class="container-fluid">
-    <div class="row border">
+    <div class="row">
       <app-sidenav class="row col"></app-sidenav>
       <div class="row col-10 justify-content-center">
-        <div class="container border d-flex justify-content-center height-80">
+        <div class="container d-flex justify-content-center height-80">
           <div class="rounded col-12 col-md-10">
             @if(messagesArray !== undefined){
               @for (msg of messagesArray.messages; track $index) {
@@ -24,16 +24,9 @@
               </div>
               }
             }
-            <!-- @if (stringArray !== undefined) {
-            <article id="box-risposta">
-              <p class="p-3">
-                {{ stringArray }}
-              </p>
-            </article>
-            } -->
           </div>
         </div>
-        <div class="row justify-content-center border">
+        <div class="row justify-content-center">
           <div class="col-12">
             <app-input-form (textEmitter)="callIA($event)"></app-input-form>
           </div>

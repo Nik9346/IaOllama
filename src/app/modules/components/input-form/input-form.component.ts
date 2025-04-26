@@ -24,4 +24,5 @@ export class InputFormComponent {
     this.textEmitter.emit(this.inputText.nativeElement.value);
     this.inputText.nativeElement.value = '';
   }
+  
 }
