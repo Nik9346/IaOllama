@@ -1,31 +1,25 @@
 <nav class="navbar navbar-expand-lg">
-  <a>
-    <img class="invert" src="/ollama-seeklogo.svg" width="40" height="40" alt="">
-  </a>
   <div class="container-fluid">
-    <span class="navbar-brand text-secondary font-weight-bold">Ollama</span>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
+    <a>
+      <img class="d-none d-lg-block invert" src="/ollama-seeklogo.svg" width="40" height="40" alt="">
+    </a>
+    <span class="d-none d-md-block navbar-brand text-secondary font-weight-bold">Ollama</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <img class="invert" src="/ollama-seeklogo.svg" width="40" height="40" alt="">
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown hover-grey">
-          <select class="form-select pointer font-weight-bold text-white bg-transparent py-3 border-0" (change)="onSelectChange($event)" aria-label="Default select example">
+          <select class="form-select pointer font-weight-bold text-white bg-transparent py-3 border-0"
+            (change)="onSelectChange($event)" aria-label="Default select example">
             <option selected>{{modelSelected |uppercase }}</option>
             @for (model of models; track model.name) {
-              @if(model.name != modelSelected){
-                <option [value]="model.name">{{ model.name | uppercase }}</option>
-              }
-          }
-        </select>
+            @if(model.name != modelSelected){
+            <option [value]="model.name">{{ model.name | uppercase }}</option>
+            }
+            }
+          </select>
         </li>
       </ul>
     </div>

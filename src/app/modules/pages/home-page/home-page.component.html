@@ -1,4 +1,4 @@
-<div class="container-main border bg-dark">
+<div class="container-main bg-dark">
   <article class="p-3">
     <div class="text-center">
       <app-navbar [models]="models" [modelSelected]="modelSelected"
@@ -7,18 +7,18 @@
   </article>
 
   <div class="container-fluid">
-    <div class="row">
-      <app-sidenav class="row col"></app-sidenav>
-      <div class="row col-10 justify-content-center">
-        <div class="container d-flex justify-content-center height-80">
-          <div class="rounded col-12 col-md-10">
+    <div class="row justify-content-center">
+      <app-sidenav class="d-none d-md-block row col"></app-sidenav>
+      <div class="row col-12 col-md-10 justify-content-center">
+        <div class="container d-flex justify-content-center height-70">
+          <div id="box-chat" class="rounded col-12 col-md-10">
             @if(messagesArray !== undefined){
               @for (msg of messagesArray.messages; track $index) {
               <div class="row my-3 mx-2"
                 [ngClass]="{'justify-content-end' : msg.role === 'user','justify-content-start' : msg.role !== 'user'}">
                 <div [id]="msg.role === 'user' ? 'box-richiesta' : 'box-risposta'">
                   <p class="p-3">
-                    {{ msg.content }}
+                      {{ msg.content }}
                   </p>
                 </div>
               </div>
@@ -26,8 +26,8 @@
             }
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-12">
+        <div class="row justify-content-center mt-2">
+          <div class="col-12 col-md-8 col-xl-6 p-0 p-sm-1">
             <app-input-form (textEmitter)="callIA($event)"></app-input-form>
           </div>
         </div>

@@ -29,8 +29,9 @@ export class HomePageComponent implements OnInit {
   stringArray: string = undefined;
   textRequest: string = undefined;
   models: IModel[] = [];
-  modelSelected: string = 'mistral';
+  modelSelected: string = 'qwen2.5';
   messagesArray: IChatRequest;
+  currentStreamingMessage: IMessage = null;
 
   constructor(
     private chatService: ChatApiService,
@@ -38,19 +39,18 @@ export class HomePageComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.chatService.chat$.subscribe((data: IChatFinalResponse) => {
-      if (data) {
-        this.streamData.push(data.message.content);
-        this.stringArray = this.streamData.join('');
-        if (data.done) {
-          console.log(data.done);
-          let newMex: IMessage = {
+      if(data){
+        if(!this.currentStreamingMessage) {
+          this.currentStreamingMessage = {
             role: data.message.role,
-            content: this.stringArray
+            content: ''
           }
-          this.messagesArray.messages.push(newMex);
-          console.log(this.messagesArray);
-        }
+          this.messagesArray.messages.push(this.currentStreamingMessage)
+        };
       }
+      this.currentStreamingMessage.content += data.message.content;
+      if(data.done)
+        this.currentStreamingMessage = null;
     });
     this.modelService
       .loadDefaultModel({ model: this.modelSelected })
@@ -85,10 +85,10 @@ export class HomePageComponent implements OnInit {
           },
         ],
       };
-    }else{
-      let newMex : IMessage = {
-        role:'user',
-        content:event
+    } else {
+      let newMex: IMessage = {
+        role: 'user',
+        content: event
       }
       this.messagesArray.messages.push(newMex);
     }

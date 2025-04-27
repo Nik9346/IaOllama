@@ -1,14 +1,14 @@
-<div class="container bg-dark">
+<div class="container-fluid max-width-50 p-0 bg-dark">
     <div class="input-group input-group-md">
           <i class="fa-solid fa-brain"></i>
         <input placeholder="Scrivi qui la tua domanda..." (keydown.enter)="send()"
           #inputText
           name="text"
           type="text"
-          class="form-control"
+          class="form-control text-white bg-transparent"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
         />
-        <button (click)="send()" class="btn btn-primary">Invia</button>
+        <button (click)="send()" class="btn btn-warning">Invia</button>
       </div>
 </div>
