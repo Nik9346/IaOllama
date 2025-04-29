@@ -8,9 +8,9 @@ import { IResponse } from '../models/response.model';
   providedIn: 'root',
 })
 export class ModelService {
-  path: string = 'api/tags';
-  pathDefaultModel: string = 'api/ps';
-  pathLoadDefaultModel: string = 'api/generate';
+  path: string = '/tags';
+  pathDefaultModel: string = '/ps';
+  pathLoadDefaultModel: string = '/generate';
   constructor(private apiService: ApiService) {}
 
   loadDefaultModel(defaultModel: Object): Observable<IResponse> {

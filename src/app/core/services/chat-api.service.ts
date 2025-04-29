@@ -16,7 +16,7 @@ export class ChatApiService {
   constructor(private apiService: ApiService) {}
 
   streamServiceChat(payload: IChatRequest): void {
-    const path = 'api/chat'
+    const path = '/chat'
     const options: oboe.Options = {
       url: `${this.apiService.api_url}${path}`,
       method: 'POST',
