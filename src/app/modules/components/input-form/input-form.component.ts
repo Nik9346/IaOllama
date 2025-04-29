@@ -20,7 +20,6 @@ export class InputFormComponent {
   @Output() textEmitter = new EventEmitter<string>();
 
   send() {
-    console.log(this.inputText.nativeElement.value);
     this.textEmitter.emit(this.inputText.nativeElement.value);
     this.inputText.nativeElement.value = '';
   }

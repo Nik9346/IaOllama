@@ -6,9 +6,11 @@
 #box-risposta {
   max-width: fit-content;
   background-color: #666666;
-
   color: #fff;
   border-radius: 8px;
+  p{
+    margin: 0;
+  }
 }
 
 #box-richiesta {
@@ -17,7 +19,7 @@
   color: #fff;
   border-radius: 12px;
   margin-top: 1.5em;
-  text-align: end;
+  text-align: start;
   p{
     margin: 0;
   }
