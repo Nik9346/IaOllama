@@ -15,7 +15,7 @@ export class ModelService {
 
   loadDefaultModel(defaultModel: Object): Observable<IResponse> {
     return this.apiService
-      .post(this.pathLoadDefaultModel, defaultModel)
+      .postWithFullHeadersResponse(this.pathLoadDefaultModel, defaultModel)
       .pipe(map((data: IResponse) => data));
   }
 
