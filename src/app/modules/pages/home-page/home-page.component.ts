@@ -4,8 +4,10 @@ import { ApiService } from "../../../core/services/api.service";
 import { IRequest } from "../../../core/models/request.model";
 import { IResponse } from "../../../core/models/response.model";
 import { LoadingSpinnerComponent } from "../../components/loading-spinner/loading-spinner.component";
-import { catchError, map } from "rxjs";
 import { ChatApiService } from "../../../core/services/chat-api.service";
+import { MarkdownModule, MarkdownService } from "ngx-markdown";
+
+
 import {
   chatRequest,
   IChatRequest,
@@ -29,7 +31,9 @@ import { LocalStorageService } from "../../../core/services/local-storage.servic
     NavbarComponent,
     SidenavComponent,
     NgClass,
+    MarkdownModule,
   ],
+  providers: [MarkdownService],
   templateUrl: "./home-page.component.html",
   styleUrl: "./home-page.component.scss",
 })
@@ -112,6 +116,11 @@ export class HomePageComponent implements OnInit {
   changeSelectedModel(event: string): void {
     this.modelSelected = event;
     console.log(this.modelSelected);
+    this.messagesArray = undefined;
+  }
+
+  newChat(): void{
+    this.localeStorageService.deleteData(this.localeStorageService.getToken());
     this.messagesArray = undefined;
   }
 }

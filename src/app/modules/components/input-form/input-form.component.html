@@ -1,14 +1,21 @@
-<div class="container-fluid max-width-50 p-0 bg-dark">
-    <div class="input-group input-group-md">
-          <i class="fa-solid fa-brain"></i>
-        <input placeholder="Scrivi qui la tua domanda..." (keydown.enter)="send()"
-          #inputText
-          name="text"
-          type="text"
-          class="form-control text-white bg-transparent"
-          aria-label="Large"
-          aria-describedby="inputGroup-sizing-sm"
-        />
-        <button (click)="send()" class="btn btn-warning">Invia</button>
+<div class="bg-dark py-2">
+  <div id="input-box" class="input-group input-group-md justify-content-center p-2">
+    <div class="col-12 p-2">
+      <i class="fa-solid fa-brain"></i>
+      <textarea class="rounded bg-transparent text-white border-0"
+        rows="2"
+        placeholder="Scrivi qui la tua domanda..."
+        (keydown)="triggerEvent($event)"
+        #inputText
+      ></textarea>
+    </div>
+    <div class="d-flex px-1 justify-content-between col-12">
+      <div class="col-2 p-0 text-left">
+        <button (click)="newChat()" class="btn inputBtn"><i class="bi bi-pencil-square"></i></button>
       </div>
+      <div class="col-2 p-0 text-end">
+        <button [disabled]="inputText.value == ''" (click)="send()" class="btn inputBtn"><i class="bi bi-send"></i></button>
+      </div>
+    </div>
+  </div>
 </div>

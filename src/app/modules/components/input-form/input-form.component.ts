@@ -18,10 +18,25 @@ export class InputFormComponent {
   @ViewChild('inputText') inputText: ElementRef;
 
   @Output() textEmitter = new EventEmitter<string>();
+  @Output() newChatEmitter = new EventEmitter<void>();
 
   send() {
-    this.textEmitter.emit(this.inputText.nativeElement.value);
-    this.inputText.nativeElement.value = '';
+    if (this.inputText.nativeElement.value === '' || this.inputText.nativeElement.value === null) {
+      return;
+    }else{
+      this.textEmitter.emit(this.inputText.nativeElement.value);
+      this.inputText.nativeElement.value = '';
+    }
+  }
+
+  triggerEvent(event: KeyboardEvent) {
+    if(event.key === 'Enter'){
+      event.preventDefault();
+      this.send();
+    }
+  }
+  newChat(){
+    this.newChatEmitter.emit();
   }
   
 }

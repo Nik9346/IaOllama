@@ -1,6 +1,6 @@
 .container{
     background-color: #666666;
-    padding: 2em;
+    // padding: 2em;
     border: none;
     border-radius: 8px;
     margin-bottom: 1em;
@@ -8,4 +8,23 @@
 }
 input::placeholder{
     color: #f6f6f6f6;
+}
+textarea{
+    width: 100%;
+    resize: none;
+    outline: none;
+    :focus{
+        outline: none;
+    }   
+}
+#input-box{
+    background-color: #303030;
+    border-radius: 30px;
+}
+
+.inputBtn{
+    background-color: #676767;
+    border: none;
+    border-radius: 50%;
+    color: #f5f5f5;
 }

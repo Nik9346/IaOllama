@@ -39,4 +39,7 @@ export class LocalStorageService {
     }
     return null;
   }
+  deleteData(id: string) : void {
+    localStorage.removeItem(`history_${id}`);
+  }
 }

@@ -1,5 +1,5 @@
 <div class="container-main bg-dark">
-  <article class="p-3">
+  <article class="p-0 p-md-3">
     <div class="text-center">
       <app-navbar [models]="models" [modelSelected]="modelSelected"
         (modelSelectedChange)="changeSelectedModel($event)"></app-navbar>
@@ -14,23 +14,23 @@
           <div id="box-chat" class="rounded col-12 col-md-10">
             @if(messagesArray !== undefined){
               @for (msg of messagesArray.messages; track $index) {
-              <div class="row my-3 mx-2"
+              <div class="row my-3 mx-0 mx-md-2"
                 [ngClass]="{'justify-content-end' : msg.role === 'user','justify-content-start' : msg.role !== 'user'}">
                 <div [id]="msg.role === 'user' ? 'box-richiesta' : 'box-risposta'">
-                  <p class="p-3">
-                      {{ msg.content }}
-                  </p>
+                  <markdown [data]="msg.content" class="p-3">
+                      <!-- {{ msg.content }} -->
+                  </markdown>
                 </div>
               </div>
               }
             }
           </div>
         </div>
-        <div class="row justify-content-center mt-2">
+        <!-- <div class="justify-content-center my-3 my-md-5"> -->
           <div class="col-12 col-md-8 col-xl-6 p-0 p-sm-1">
-            <app-input-form (textEmitter)="callIA($event)"></app-input-form>
+            <app-input-form (newChatEmitter)="newChat()" (textEmitter)="callIA($event)"></app-input-form>
           </div>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>

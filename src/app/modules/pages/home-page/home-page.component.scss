@@ -1,14 +1,14 @@
 .container-main {
   padding: 1.5em;
   padding-bottom: 5em;
-  height: 100vh;
+  border: 1 px solid red;
 }
 #box-risposta {
   max-width: fit-content;
   background-color: #666666;
   color: #fff;
   border-radius: 8px;
-  p{
+  p {
     margin: 0;
   }
 }
@@ -20,14 +20,16 @@
   border-radius: 12px;
   margin-top: 1.5em;
   text-align: start;
-  p{
+  p {
     margin: 0;
   }
 }
-.height-70{
-    height: 70vh;
-    
+.height-70 {
+  height: 70vh;
 }
-#box-chat{
+#box-chat {
   overflow-y: scroll;
+}
+markdown pre code {
+  background-color: #171717;
 }
