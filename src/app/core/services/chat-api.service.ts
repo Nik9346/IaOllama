@@ -13,7 +13,8 @@ export class ChatApiService {
   private chatSubject = new BehaviorSubject<IChatFinalResponse | null>(null);
   chat$: Observable<IChatFinalResponse | null> =
     this.chatSubject.asObservable();
-  constructor(private apiService: ApiService) {}
+  
+    constructor(private apiService: ApiService) {}
 
   streamServiceChat(payload: IChatRequest): void {
     const path = '/chat'

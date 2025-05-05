@@ -53,8 +53,8 @@ import {
   ɵɵtemplate,
   ɵɵviewQuery
 } from "./chunk-22FW4CBJ.js";
-import "./chunk-PEBH6BBU.js";
 import "./chunk-WPM5VTLQ.js";
+import "./chunk-PEBH6BBU.js";
 import {
   BehaviorSubject,
   Subject,
